@@ -53,7 +53,7 @@ def generate_and_upload():
             "file": ("headwaters.png", open("images/headwaters.png", "rb"), "image/png")
         }
 
-        response = requests.post('https://vwu4v7j6wa.microcms-management.io/api/v1/media', headers=headers, files=files)
+        response = requests.post(os.getenv("MICROCMS_URL"), headers=headers, files=files)
         return jsonify(response.json())
 
     except Exception as e:
